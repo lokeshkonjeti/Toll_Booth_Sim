@@ -7,9 +7,9 @@ Pipeline: Detect Vehicles using pre-built (YOLOv8 COCO) -> Plate detection pre-b
 High-Level Flow:
 1. Open a video/webcam
 2. Detect **vehicles** with YOLOv8 (COCO-pretrained)
-3. For each vehicle crop, detect a **license plate** with the **Koushim** model
+3. For each vehicle crop, detect a **license plate** with a pre-trained model from HuggingFace
 4. OCR the plate crop with **EasyOCR**
-5. Draw overlays, write an **annotated video**, and (optionally) append structured records to a **JSONL** file
+5. Draw overlays, write an **annotated video**, and append structured records to a **JSONL** file
 
 # Test on a video file
 python main.py --video input.mp4 --out annotated.mp4 --jsonl events.jsonl
