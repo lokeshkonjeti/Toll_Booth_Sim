@@ -13,20 +13,32 @@ Pipeline: Detect Vehicles using pre-built (YOLOv8 COCO) -> Plate detection pre-b
 
 **Helper functions:**
 clip_box(box, w, h) → clamps a bbox to image bounds (no negative or out-of-frame coords).
+
 expand_box(box, w, h, scale=0.12) → grows the bbox by a % on each side. This can be helpful for OCR (as it can give the reader a little area around the plate to validate better).
+
 crop(img, box) → returns the image region for the bbox.
+
 draw_box(img, box, color, label) → draws a rectangle + text label on the frame.
+
 now_utc_iso() → ISO 8601 timestamp in UTC for logging.
 
 **CLI arguments (parse_args):**
---video → path, 0 for webcam, or RTSP URL.
+--video → path, or 0 for webcam.
+
 --out → annotated video output path (annotated.mp4).
+
 --jsonl → if set, append one JSON object per detection here.
+
 --device → '' (auto), 'cpu', or GPU id like '0'.
+
 --conf-veh, --conf-plate → confidence thresholds for the two detectors.
+
 --ocr-lang → EasyOCR languages (e.g., "en" or "en,pt").
+
 --ocr-gpu → use GPU for EasyOCR if available.
+
 --show → live preview window (Esc to quit).
+
 --save-crops, --crops-dir → save OCR plate crops for QA/datasets.
 
 # Test on a video file
